@@ -28,7 +28,7 @@ if __name__ == '__main__':
     plt.figure(figsize=(10, 5))                 #Plots bar graph with appropriate labels, sizing, and values
     plt.bar(x, y)
     plt.xlabel("Race")
-    plt.ylabel("Perceived Threat Rate")
+    plt.ylabel("Perceived Threat Rate (%)")
     plt.ylim(50, 70)
     plt.show()
 
