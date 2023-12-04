@@ -83,7 +83,7 @@ plt.style.use('_mpl-gallery')
 # make data:
 x = ["White", "African American", "Hispanic", "Asian", "Native American", "Other", "Unknown"]
 y = [get_race_count(tasered_list, "White"), get_race_count(tasered_list, "African American"), get_race_count(tasered_list, "Hispanic"), get_race_count(tasered_list, "Asian"), get_race_count(tasered_list, "Native American"), get_race_count(tasered_list, "Other"), get_race_count(tasered_list, "Unknown")]
-print(get_race_count(shootings, "Unknown"))
+
 
 #create and show the bar chart
 plt.bar(x, y, width = 1, edgecolor="white", linewidth=0.7)
