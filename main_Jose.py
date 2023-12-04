@@ -27,6 +27,7 @@ if __name__ == '__main__':
     x, y = zip(*lists)
     plt.figure(figsize=(10, 5))                 #Plots bar graph with appropriate labels, sizing, and values
     plt.bar(x, y)
+    plt.title("Effects of Race on Perception of Threat in Police Shootings")
     plt.xlabel("Race")
     plt.ylabel("Perceived Threat Rate (%)")
     plt.ylim(50, 70)
