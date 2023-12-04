@@ -39,14 +39,14 @@ def main():
     print(f'The results indicate that, of 6569 fatal shootings recorded since 2015:\n'
           f'Of {total_unarmed_sample} total unarmed, {overall}% were perceived as an attack threat by police.\n'
           f'Of {white_sample} unarmed Whites, {white_percentage}% were perceived as an attack threat by police.\n'
-          f'Of {black_sample} unarmed African Americans, {black_percentage}% were perceived as an attack threat by police.\n'
+          f'Of {black_sample} unarmed African-Americans, {black_percentage}% were perceived as an attack threat by police.\n'
           f'Of {hispanic_sample} unarmed Hispanics, {hispanic_percentage}% were perceived as an attack threat by police.\n'
           f'Of {asian_sample} unarmed Asians, {asian_percentage}% were perceived as an attack threat by police.\n')
 
-    x = ['Overall', 'White', 'African American', 'Hispanic', 'Asian']
+    x = ['Overall', 'White', 'African-American', 'Hispanic', 'Asian']
     y = [overall, white_percentage, black_percentage, hispanic_percentage, asian_percentage]
     plt.bar(x, y, width=1, edgecolor='white', linewidth=0.7)
-    plt.title('Perceived Unarmed Threat Relative to Race in Fatal Police Shootings')
+    plt.title('Perceived Unarmed Threat Level vs. Race in Fatal Police Shootings')
     plt.xlabel('Races')
     plt.ylabel('% of unarmed perceived as "attacking"')
     plt.show()
