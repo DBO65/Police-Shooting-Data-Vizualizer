@@ -1,4 +1,4 @@
-class RaceThreatLevelStats:
+class RaceThreatLevelStats:            
     def __init__(self, races_list, threat_levels_list):
         self.races_list = races_list
         self.threat_levels_list = threat_levels_list
@@ -6,7 +6,7 @@ class RaceThreatLevelStats:
         self.threat_level_counts = {}
         self.race_threat_rates = {}
 
-    def count_occurrences(self):
+    def count_occurrences(self):            #Counts how many people per race there are
         for race in self.races_list:
             self.race_counts[race] = self.race_counts.get(race, 0) + 1
 
