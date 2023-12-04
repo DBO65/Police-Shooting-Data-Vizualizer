@@ -56,7 +56,7 @@ def main():
           f'Of {other_sample} other unarmed, {other_percentage}% were perceived as an attack threat by police.\n'
           f'Standard deviation of these percentages is {round(standard_dev, 2)}%')
     # Display bar chart
-    x = ['Overall', 'White', 'African-American', 'Hispanic', 'Asian', 'Other']
+    x = ['Overall', 'White', 'Black', 'Hispanic', 'Asian', 'Other']
     y = [overall, white_percentage, black_percentage, hispanic_percentage, asian_percentage, other_percentage]
     plt.bar(x, y, width=1, edgecolor='white', linewidth=0.7)
     plt.title('Perceived Unarmed Threat Level vs. Race in Fatal Police Shootings')
