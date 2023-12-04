@@ -4,7 +4,6 @@ shootings = police_shootings.get_shootings()
 
 
 def main():
-    c1, c2 = 0, 0
     # Statistics unarmed
     unarmed = [incident for incident in shootings if incident['Factors']['Armed'] == 'unarmed']
     unarmed_and_threat = [i for i in unarmed if i['Factors']['Threat-Level'] == 'attack']
