@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 from RaceThreatLevel import RaceThreatLevelStats
-import police_shootings
-import numpy as np
+import police_shootings                                 #Importing all libraries for visualization and data
 shootings = police_shootings.get_shootings()
 
 extracted_threat = [person['Factors']['Threat-Level'] for person in shootings if 'Factors' in person and 'Threat-Level' in person['Factors']]           #Extract threat from factors
@@ -19,22 +18,16 @@ if __name__ == '__main__':
     threat_level_counts = stats.get_threat_level_counts()
     race_threat_rates = stats.get_race_threat_rates()
 
-
     print(race_counts)
-    print(threat_level_counts)
+    print(threat_level_counts)            #Prints filtered data without visualization
     print(race_threat_rates)
+    
     lists = sorted(race_threat_rates.items())
     x, y = zip(*lists)
-    plt.figure(figsize=(10, 5))                 #Plots bar graph with appropriate labels, sizing, and values
+    plt.figure(figsize=(10, 5))                 #Plots bar graph with appropriate title, labels, sizing, and values
     plt.bar(x, y)
     plt.title("Effects of Race on Perception of Threat in Police Shootings")
     plt.xlabel("Race")
     plt.ylabel("% Of Suspects Perceived as Threatening")
     plt.ylim(50, 70)
     plt.show()
-
-
-
-
-
-
