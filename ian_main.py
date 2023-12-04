@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import statistics
 import police_shootings
 shootings = police_shootings.get_shootings()
 
@@ -33,18 +34,30 @@ def main():
     asian_unarmed_threat = [i for i in asian_unarmed if i['Factors']['Threat-Level'] == 'attack']
     asian_sample = len(asian_unarmed)
     asian_percentage = 100 * len(asian_unarmed_threat)/asian_sample
-    # Other
 
-    overall, white_percentage, black_percentage, hispanic_percentage, asian_percentage = round(overall, 2), round(white_percentage, 2), round(black_percentage, 2), round(hispanic_percentage, 2), round(asian_percentage, 2)
+    # Other
+    other_unarmed = [person for person in unarmed if not (person in white_unarmed or person in black_unarmed or person in hispanic_unarmed or person in asian_unarmed)]
+    other_unarmed_threat = [i for i in other_unarmed if i['Factors']['Threat-Level'] == 'attack']
+    other_sample = len(other_unarmed)
+    other_percentage = 100 * len(other_unarmed_threat) / other_sample
+
+    # Round percentages
+    overall, white_percentage, black_percentage, hispanic_percentage, asian_percentage, other_percentage = round(overall, 2), round(white_percentage, 2), round(black_percentage, 2), round(hispanic_percentage, 2), round(asian_percentage, 2), round(other_percentage, 2)
+    # Calculate standard deviation of percentages
+    standard_dev = statistics.stdev([white_percentage, black_percentage, hispanic_percentage, asian_percentage, other_percentage])
+
+    # Print results
     print(f'The results indicate that, of 6569 fatal shootings recorded since 2015:\n'
           f'Of {total_unarmed_sample} total unarmed, {overall}% were perceived as an attack threat by police.\n'
           f'Of {white_sample} unarmed Whites, {white_percentage}% were perceived as an attack threat by police.\n'
           f'Of {black_sample} unarmed African-Americans, {black_percentage}% were perceived as an attack threat by police.\n'
           f'Of {hispanic_sample} unarmed Hispanics, {hispanic_percentage}% were perceived as an attack threat by police.\n'
-          f'Of {asian_sample} unarmed Asians, {asian_percentage}% were perceived as an attack threat by police.\n')
-
-    x = ['Overall', 'White', 'African-American', 'Hispanic', 'Asian']
-    y = [overall, white_percentage, black_percentage, hispanic_percentage, asian_percentage]
+          f'Of {asian_sample} unarmed Asians, {asian_percentage}% were perceived as an attack threat by police.\n'
+          f'Of {other_sample} other unarmed, {other_percentage}% were perceived as an attack threat by police.\n'
+          f'Standard deviation of these percentages is {round(standard_dev, 2)}%')
+    # Display bar chart
+    x = ['Overall', 'White', 'African-American', 'Hispanic', 'Asian', 'Other']
+    y = [overall, white_percentage, black_percentage, hispanic_percentage, asian_percentage, other_percentage]
     plt.bar(x, y, width=1, edgecolor='white', linewidth=0.7)
     plt.title('Perceived Unarmed Threat Level vs. Race in Fatal Police Shootings')
     plt.xlabel('Races')
