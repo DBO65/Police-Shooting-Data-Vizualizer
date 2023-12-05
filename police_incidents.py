@@ -85,7 +85,7 @@ def main():
     # make data:
     x = ["Overall", "White", "African American", "Hispanic", "Asian", "Native American", "Other", "Unknown"]
     y = [overall_taser_prop, white_taser_prop, black_taser_prop, hispanic_taser_prop, asian_taser_prop, native_taser_prop, other_taser_prop, unknown_taser_prop]
-
+    print(y)
 
     #create and show the bar chart
     plt.bar(x, y, width = 1, edgecolor="white", linewidth=0.7)
