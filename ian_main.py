@@ -82,23 +82,17 @@ def main():
     print("\t Sum((observed - expected)^2/observed)\n")
     chi_square = 0
     for race in prop_list:
-        chi_square = chi_square + ((race[0] - race[1])**2/race[0])
+        chi_square += ((race[0] - race[1])**2/race[0])
     print(f'Test Statistic: {chi_square:.4f}\n')
 
     # p-value calculation
-    critical_value = scipy.stats.chi2.ppf(q = .95, df = 6)
+    critical_value = scipy.stats.chi2.ppf(q=.95, df = 6)
 
-    print("The following critical value is the minimum X^2 value required to reject the null hypothesis, Ho")
+    print("The following critical value is the minimum X^2 value required to reject the null hypothesis, H0")
     print(f'Critical Value: {critical_value:.4f}\n')
 
-    p_value = 1 - scipy.stats.chi2.cdf(x = chi_square, df = 6)
+    p_value = 1 - scipy.stats.chi2.cdf(x=chi_square, df = 6)
     print(f'p-value: {p_value:.4f}')
-    print(f"\nBecause our P-value of {p_value:.4f} is greater than our standard alpha level of 0.05, we fail to reject "
-          f"the null hypothesis, that")
-    print('the proportion of unarmed people perceived as an attack threat by police is around 38.48% for each group.')
-    print('From the contents of this dataset alone, there is insufficient evidence to generate support for the')
-    print('alternate hypothesis, that the premises of racial threat theory may be corroborated by variations in')
-    print('treatment across racial groups.')
 
 
 if __name__ == '__main__':
