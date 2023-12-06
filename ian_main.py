@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import scipy.stats
 import statistics
 import police_shootings
 shootings = police_shootings.get_shootings()
@@ -63,6 +64,41 @@ def main():
     plt.xlabel('Races')
     plt.ylabel('% of unarmed perceived as "attacking"')
     plt.show()
+
+    # Compute "expected" numbers for 0 standard deviation
+    white_expected = white_sample * overall / 100
+    black_expected = black_sample * overall / 100
+    hispanic_expected = hispanic_sample * overall / 100
+    asian_expected = asian_sample * overall / 100
+    other_expected = other_sample * overall / 100
+
+    prop_list = [(len(white_unarmed_threat), white_expected),
+                 (len(black_unarmed_threat), black_expected),
+                 (len(hispanic_unarmed_threat), hispanic_expected),
+                 (len(asian_unarmed_threat), asian_expected),
+                 (len(other_unarmed_threat), other_expected)]
+
+    print("\nThe following test statistic is the X^2 value, which is measured by the following formula:\n")
+    print("\t Sum((observed - expected)^2/observed)\n")
+    chi_square = 0
+    for race in prop_list:
+        chi_square = chi_square + ((race[0] - race[1])**2/race[0])
+    print(f'Test Statistic: {chi_square:.4f}\n')
+
+    # p-value calculation
+    critical_value = scipy.stats.chi2.ppf(q = .95, df = 6)
+
+    print("The following critical value is the minimum X^2 value required to reject the null hypothesis, Ho")
+    print(f'Critical Value: {critical_value:.4f}\n')
+
+    p_value = 1 - scipy.stats.chi2.cdf(x = chi_square, df = 6)
+    print(f'p-value: {p_value:.4f}')
+    print(f"\nBecause our P-value of {p_value:.4f} is greater than our standard alpha level of 0.05, we fail to reject "
+          f"the null hypothesis, that")
+    print('the proportion of unarmed people perceived as an attack threat by police is around 38.48% for each group.')
+    print('From the contents of this dataset alone, there is insufficient evidence to generate support for the')
+    print('alternate hypothesis, that the premises of racial threat theory may be corroborated by variations in')
+    print('treatment across racial groups.')
 
 
 if __name__ == '__main__':
