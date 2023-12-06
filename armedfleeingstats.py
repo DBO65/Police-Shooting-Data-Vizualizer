@@ -8,6 +8,7 @@ class ArmedFleeingStats:
         self.asian = [person for person in self.race if person["Person"]["Race"] == "Asian"]
         self.hispanic = [person for person in self.race if person["Person"]["Race"] == "Hispanic"]
         self.native = [person for person in self.race if person["Person"]["Race"] == "Native American"]
+        self.other = [person for person in self.race if person["Person"]["Race"] == "Other"]
         self.unknown = [person for person in self.race if person["Person"]["Race"] == "Unknown"]
         self.a_flee = []
         self.w_a_fleeing = []
@@ -15,6 +16,7 @@ class ArmedFleeingStats:
         self.a_a_fleeing = []
         self.h_a_fleeing = []
         self.na_a_fleeing = []
+        self.o_a_fleeing = []
         self.u_a_fleeing = []
 
     def armed_fleeing_count(self):
@@ -35,6 +37,9 @@ class ArmedFleeingStats:
 
     def na_armed_fleeing_count(self):
         self.na_a_fleeing = [person for person in self.a_flee if person["Person"]["Race"] == "Native American"]
+
+    def o_armed_fleeing_count(self):
+        self.o_a_fleeing = [person for person in self.a_flee if person["Person"]["Race"] == "Other"]
 
     def u_armed_fleeing_count(self):
         self.u_a_fleeing = [person for person in self.a_flee if person["Person"]["Race"] == "Unknown"]
