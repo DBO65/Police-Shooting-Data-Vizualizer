@@ -108,3 +108,7 @@ plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=90)
 plt.title('Pie Chart Showing the Percentage of Individuals Fleeing While Armed for Each Race'
           '\nAs a Proportion of Total Fatal Police Shooting Incidents')
 plt.show()
+
+if __name__ == "__main__":
+    main()
+
