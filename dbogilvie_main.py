@@ -70,7 +70,7 @@ print(f"\nIn contrast out of all the fatal police shootings that occurred in 201
 x = ['White', 'African-American', 'Asian', 'Hispanic', 'Native American']
 y = [w_af_data*100, b_af_data*100, a_af_data*100, h_af_data*100, na_af_data*100]
 plt.bar(x, y, width=1, edgecolor='white', linewidth=0.7)
-plt.title('Percentage of each Race (Excluding Other & Unknown) Involved in Fatal Police Shooting'
+plt.title('Bar Graph Showing Percentage of each Race (Excluding Other & Unknown) Involved in Fatal Police Shooting'
           '\nWhile Fleeing While Armed (2015)')
 plt.xlabel('\nRaces')
 plt.ylabel('Percentage (%)')
@@ -80,18 +80,18 @@ plt.show()
 x = ['White', 'African-American', 'Asian', 'Hispanic', 'Native American']
 y = [waf_data*100, baf_data*100, aaf_data*100, haf_data*100, _na_af_data*100]
 plt.bar(x, y, width=1, edgecolor='white', linewidth=0.7)
-plt.title('Percentage of All Individuals Involved in Fatal Police Shooting While Fleeing While Armed'
-          '\n for each Race (Excluding Other & Unknown)(2015)')
+plt.title('Bar Graph Showing the Percentage of Individuals Fleeing While Armed in Fatal Police Shootings (2015)'
+          '\nDistribution Across Different Races')
 plt.xlabel('\nRaces')
 plt.ylabel('Percentage (%)')
 plt.show()
 
 # Create and Display bar chart
 x = ['White', 'African-American', 'Asian', 'Hispanic', 'Native American']
-y = [waf_data*100, baf_data*100, aaf_data*100, haf_data*100, _na_af_data*100]
+y = [c_waf_data*100, c_baf_data*100, c_aaf_data*100, c_haf_data*100, c_naf_data*100]
 plt.bar(x, y, width=1, edgecolor='white', linewidth=0.7)
-plt.title('Percentage of All Individuals Involved in Fatal Police Shooting While Fleeing While Armed '
-          '\neach Race (Excluding Other & Unknown)(2015)')
+plt.title('Bar Graph Showing the Percentage of Individuals Fleeing While Armed for Each Race'
+          '\nAs a Proportion of Total Fatal Police Shooting Incidents (2015)')
 plt.xlabel('\nRaces')
 plt.ylabel('Percentage (%)')
 plt.show()
